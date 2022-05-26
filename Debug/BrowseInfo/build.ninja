@@ -1,0 +1,193 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\cstartup_M.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\cstartup_M.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Det.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Det.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio_PBcfg.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio_PBcfg.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps_gsm_buffer.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps_gsm_buffer.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gsm.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gsm.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\keypad.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\keypad.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\lcd.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\lcd.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\main.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\main.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port_PBcfg.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port_PBcfg.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Sw_Delay.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Sw_Delay.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart_PBcfg.c" -xcl_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.xcl" -macro_file "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart_PBcfg.c" -o "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.tmp"
+  rspfile_name = D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.xcl.rsp
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\cstartup_M.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Det.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Dio_PBcfg.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gps_gsm_buffer.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\gsm.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\keypad.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\lcd.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\main.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Port_PBcfg.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Sw_Delay.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.pbi : INDEXER D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.xcl |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Uart_PBcfg.c
+  flags = "-out=D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.pbi" -f "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.xcl"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbw : MAKEBROWSE D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbd
+  flags = "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbd" -output "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbw"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part0.pbi : PDBLINK D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.pbi |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.pbi
+  flags = -M "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part0.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\cstartup_M.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Det.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Dio_PBcfg.pbi"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part1.pbi : PDBLINK D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.pbi |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.pbi
+  flags = -M "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part1.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gps_gsm_buffer.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gsm.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\keypad.pbi"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part2.pbi : PDBLINK D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.pbi |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.pbi
+  flags = -M "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part2.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\lcd.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\main.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Port_PBcfg.pbi"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part3.pbi : PDBLINK D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.pbi |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.pbi
+  flags = -M "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part3.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Sw_Delay.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\Uart_PBcfg.pbi"
+
+build D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbd : PDBLINK D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part0.pbi |  $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part1.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part2.pbi $
+D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part3.pbi
+  flags = -M "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp.pbd" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part0.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part1.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part2.pbi" "D$:\Embedded_non-stop\Graduation$ Project$ Drivers\Debug\BrowseInfo\gp_part3.pbi"
+
